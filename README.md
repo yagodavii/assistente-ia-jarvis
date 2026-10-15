@@ -1,127 +1,350 @@
-# JARVIS AI Assistant
+# 🤖 JARVIS AI Assistant
 
-JARVIS is a local AI-powered assistant designed to connect natural language, voice commands, AI orchestration, browser control, and workflow automation into one productivity system.
+Assistente local com Inteligência Artificial desenvolvido para conectar **linguagem natural, comandos de voz, orquestração de IA, controle de navegador e automação de workflows** em um único sistema de produtividade.
 
-The project explores how AI agents can transform user intent into real actions, such as opening tools, controlling browser flows, executing local commands, generating documents, and supporting daily automation tasks.
+O projeto explora como agentes de IA podem transformar a intenção do usuário em ações reais, como abrir ferramentas, controlar fluxos no navegador, executar comandos locais, gerar documentos e automatizar tarefas do dia a dia.
 
-## Problem Solved
+---
 
-Many repetitive computer tasks still require manual interaction: opening tools, navigating systems, searching information, triggering commands, generating documents, or switching between AI tools manually.
+## 🎯 Problema resolvido
 
-JARVIS was built to reduce this friction by allowing users to interact with a local assistant through voice and text, while the system handles execution, orchestration, and fallback between AI tools.
+Muitas tarefas repetitivas no computador ainda exigem interação manual, como:
 
-## Business Value
+- Abrir ferramentas e aplicativos
+- Navegar entre sistemas
+- Pesquisar informações
+- Executar comandos
+- Gerar documentos
+- Controlar fluxos no navegador
+- Alternar manualmente entre diferentes ferramentas de IA
 
-This type of assistant can be adapted for:
+O JARVIS foi criado para reduzir esse atrito, permitindo que o usuário interaja com um assistente local através de **voz e texto**, enquanto o sistema cuida da execução, orquestração e fallback entre diferentes ferramentas de IA.
 
-* Internal productivity assistants
-* AI-powered workflow automation
-* Customer support operations
-* Back-office task automation
-* Browser-based process automation
-* Developer productivity tools
-* Document and PDF workflow generation
-* Multi-model AI orchestration
+---
 
-The main value is reducing repetitive manual work and creating a bridge between AI reasoning and real system actions.
+## 💼 Aplicações do projeto
 
-## Core Features
+Esse tipo de assistente pode ser adaptado para cenários como:
 
-* Real-time voice interaction
-* Wake-word activation using "Jarvis"
-* Local command execution for apps, URLs, and system tasks
-* Browser control and automation helpers
-* Screen analysis support
-* PDF generation and document workflow utilities
-* Claude Code as the primary reasoning/coding engine
-* Codex CLI fallback when Claude usage is unavailable
-* Automatic return to Claude when usage becomes available again
-* Multi-tool orchestration for productivity workflows
+- Assistentes internos de produtividade
+- Automação de workflows com IA
+- Operações de suporte
+- Automação de tarefas de back-office
+- Automação de processos via navegador
+- Ferramentas de produtividade para desenvolvedores
+- Geração de documentos e PDFs
+- Orquestração entre diferentes modelos de IA
 
-## What I Built
+O principal valor está em reduzir tarefas manuais repetitivas e criar uma ponte entre **o raciocínio da IA e ações reais executadas em sistemas**.
 
-I designed and implemented the assistant structure, including:
+---
 
-* Voice command flow
-* Command normalization and intent handling
-* Local task execution logic
-* Browser automation helpers
-* AI tool orchestration
-* Claude/Codex fallback flow
-* Environment configuration
-* Documentation
-* Safety rules for local and destructive commands
+## 🚀 Principais funcionalidades
 
-## Technical Challenges
+- Interação por voz em tempo real
+- Ativação através da wake word `Jarvis`
+- Execução de comandos locais para aplicativos, URLs e tarefas do sistema
+- Controle e automação do navegador
+- Suporte à análise de tela
+- Geração de PDFs
+- Utilitários para workflows com documentos
+- Claude Code como principal engine de raciocínio e desenvolvimento
+- Codex CLI como mecanismo de fallback
+- Retorno automático ao Claude quando o uso volta a estar disponível
+- Orquestração entre diferentes ferramentas de IA
+- Automação de workflows de produtividade
 
-Some of the main challenges were:
+---
 
-* Mapping natural voice commands to reliable actions
-* Handling different variations of spoken input
-* Keeping AI-generated code under human validation
-* Managing fallback between different AI tools
-* Avoiding unsafe execution of destructive system actions
-* Keeping sensitive credentials outside the repository
-* Structuring the project so it could grow into a more agentic workflow system
+## 🧠 Arquitetura conceitual
 
-## Tech Stack
+O fluxo principal do assistente segue uma estrutura semelhante a:
 
-* Node.js
-* Express
-* OpenAI API
-* Anthropic SDK / Claude CLI
-* Codex CLI
-* Puppeteer
-* Python utilities
-* Speech Recognition
-* Voice Commands
-* Workflow Automation
+```text
+Usuário
+   ↓
+Voz / Texto
+   ↓
+Reconhecimento e normalização
+   ↓
+Interpretação da intenção
+   ↓
+Orquestração de IA
+   ↓
+Seleção de ferramenta ou ação
+   ↓
+Execução local / Navegador / Ferramenta
+   ↓
+Resultado
+   ↓
+Resposta ao usuário
+```
 
-## Requirements
+A proposta é permitir que o assistente não apenas responda perguntas, mas também **transforme comandos em ações reais**.
 
-* Node.js 18+
-* Python 3.11+
-* OpenAI API key
-* Claude Code CLI installed and authenticated
-* Codex CLI installed and authenticated
-* Google Chrome
+---
 
-## Quick Start
+## 🛠️ O que foi desenvolvido
+
+A estrutura do assistente foi projetada e implementada incluindo:
+
+- Fluxo de comandos por voz
+- Normalização de comandos
+- Tratamento de intenção
+- Lógica para execução de tarefas locais
+- Helpers para automação de navegador
+- Orquestração de ferramentas de IA
+- Fluxo de fallback entre Claude e Codex
+- Configuração de ambiente
+- Documentação
+- Regras de segurança para comandos locais
+- Proteções para operações potencialmente destrutivas
+
+---
+
+## 🗣️ Interação por voz
+
+O JARVIS suporta comandos de voz em tempo real.
+
+A ativação ocorre através da palavra:
+
+```text
+Jarvis
+```
+
+Depois da ativação, o sistema processa o comando, interpreta a intenção e direciona a solicitação para o fluxo correspondente.
+
+Exemplos de ações:
+
+- Abrir aplicativos
+- Abrir URLs
+- Executar comandos locais
+- Iniciar automações
+- Controlar fluxos no navegador
+- Acionar ferramentas de IA
+
+---
+
+## 🧩 Orquestração de IA
+
+O projeto utiliza diferentes ferramentas de IA dentro de um mesmo fluxo.
+
+### Claude Code
+
+Utilizado como principal engine para:
+
+- Raciocínio
+- Desenvolvimento
+- Análise
+- Apoio à execução de tarefas
+
+### Codex CLI
+
+Utilizado como mecanismo de fallback quando o uso do Claude não está disponível.
+
+O sistema também possui lógica para retornar automaticamente ao Claude quando a ferramenta volta a estar disponível.
+
+---
+
+## 🌐 Automação de navegador
+
+O JARVIS possui helpers para controle e automação de navegador.
+
+Isso permite explorar fluxos como:
+
+- Abrir páginas
+- Navegar entre interfaces
+- Executar ações repetitivas
+- Automatizar processos web
+- Integrar IA com ações no navegador
+
+---
+
+## 🖥️ Execução de tarefas locais
+
+O assistente também pode executar tarefas diretamente no computador.
+
+Exemplos:
+
+- Abrir aplicativos
+- Abrir URLs
+- Executar comandos
+- Acionar scripts
+- Iniciar fluxos automatizados
+- Executar tarefas previamente definidas
+
+Operações sensíveis devem respeitar as regras de segurança definidas no projeto.
+
+---
+
+## 📄 Documentos e PDFs
+
+O projeto possui suporte para geração de PDFs e utilitários relacionados a workflows com documentos.
+
+Isso permite explorar cenários como:
+
+- Geração automatizada de documentos
+- Criação de PDFs
+- Automação de tarefas documentais
+- Integração entre IA e geração de arquivos
+
+---
+
+## 🔐 Segurança
+
+Um dos desafios do projeto foi permitir automação local sem transformar o assistente em um executor irrestrito de comandos.
+
+Foram consideradas práticas como:
+
+- Manter código gerado por IA sob validação humana
+- Tratar comandos destrutivos com cuidado
+- Manter credenciais fora do repositório
+- Utilizar variáveis de ambiente
+- Evitar versionamento de arquivos locais ou sensíveis
+- Criar regras para execução segura de comandos
+
+---
+
+## 🧪 Principais desafios técnicos
+
+Alguns dos principais desafios encontrados durante o desenvolvimento foram:
+
+- Mapear comandos naturais de voz para ações confiáveis
+- Tratar diferentes variações de entrada falada
+- Manter código gerado por IA sob validação humana
+- Gerenciar fallback entre diferentes ferramentas de IA
+- Evitar execução insegura de ações destrutivas
+- Manter credenciais sensíveis fora do repositório
+- Estruturar o projeto para permitir evolução para workflows mais agentic
+
+---
+
+## ⚙️ Stack utilizada
+
+- Node.js
+- Express
+- OpenAI API
+- Anthropic SDK
+- Claude CLI
+- Codex CLI
+- Puppeteer
+- Python
+- Speech Recognition
+- Voice Commands
+- Browser Automation
+- Workflow Automation
+
+---
+
+## 📋 Requisitos
+
+Para executar o projeto:
+
+- Node.js 18+
+- Python 3.11+
+- OpenAI API Key
+- Claude Code CLI instalado e autenticado
+- Codex CLI instalado e autenticado
+- Google Chrome
+
+---
+
+## ▶️ Como executar
+
+Instale as dependências:
 
 ```bash
 npm install
+```
+
+Inicie o projeto:
+
+```bash
 npm run start
 ```
 
-Default server URL:
+Por padrão, o servidor ficará disponível em:
 
-```txt
+```text
 http://localhost:3000
 ```
 
-## Environment Variables
+---
 
-Create a `.env` file at the project root:
+## 🔑 Variáveis de ambiente
+
+Crie um arquivo `.env` na raiz do projeto:
 
 ```env
 OPENAI_API_KEY=your_openai_key
 ```
 
-Add any other local credentials required by your setup.
+Adicione também outras credenciais locais necessárias para o seu ambiente.
 
-## Security Notes
+> ⚠️ Nunca envie tokens, chaves ou credenciais para o repositório.
 
-This repository is configured to avoid committing sensitive or machine-specific files, including:
+---
 
-* `.env` and local environment variants
-* `node_modules/`
-* logs
-* local memory/history files
-* generated workspace content
-* personal documents or local project files
+## 🛡️ Proteção de informações sensíveis
 
-## Disclaimer
+O repositório foi configurado para evitar o versionamento de arquivos sensíveis ou específicos da máquina, incluindo:
 
-This is a personal AI assistant project for productivity, automation, and AI orchestration.
+- `.env` e variações locais de ambiente
+- `node_modules/`
+- Logs
+- Arquivos locais de memória e histórico
+- Conteúdo gerado no workspace
+- Documentos pessoais
+- Arquivos locais de projetos
 
-Use destructive system actions such as shutdown, restart, process control, or file operations responsibly.
+---
+
+## 📈 Possibilidades de evolução
+
+A estrutura atual permite futuras evoluções relacionadas a:
+
+- Memória persistente
+- RAG com documentos locais
+- Agentes especializados
+- Arquiteturas multiagentes
+- Integração com sistemas corporativos
+- Execução de workflows complexos
+- Observabilidade de agentes
+- Integração com novos modelos de IA
+- Integração com APIs e serviços externos
+- Expansão dos comandos por voz
+- Novas automações de navegador
+- Novos mecanismos de fallback
+- Aprovação humana para operações sensíveis
+
+---
+
+## 🧠 O que este projeto demonstra
+
+Este projeto demonstra experiência prática em:
+
+- Inteligência Artificial aplicada
+- Integração com LLMs
+- Agentes de IA
+- Orquestração de ferramentas de IA
+- Automação de processos
+- Automação de navegador
+- Node.js
+- Python
+- Reconhecimento de voz
+- Execução de tarefas locais
+- Tratamento de intenção
+- Integração com APIs
+- Fallback entre ferramentas
+- Segurança em automações
+- Desenvolvimento de sistemas orientados por IA
+
+---
+
+## 🎯 Objetivo do projeto
+
+O objetivo do JARVIS é explorar como **Inteligência Artificial, automação e engenharia de software** podem ser combinadas para transformar linguagem natural em ações reais.
+
+Mais do que apenas responder perguntas, o projeto busca criar um assistente capaz de:
+
+**entender → interpretar → selecionar ferramentas → executar → retornar resultados**
